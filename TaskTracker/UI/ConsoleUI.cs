@@ -42,6 +42,7 @@ namespace TaskTracker.UI
                         "Добавить задачу",
                         "Изменить статус задачи",
                         "Удалить задачу",
+                        "Статистика",           // <-- новый пункт
                         "Сохранить и выйти"
                     );
                 }
@@ -69,6 +70,11 @@ namespace TaskTracker.UI
                         running = false;
                         Console.WriteLine("Задачи сохранены. До свидания!");
                         break;
+                    case 6:                    // было 5, стало 6
+                        storage.SaveTasks(taskService.GetAllTasks());
+                        running = false;
+                        Console.WriteLine("Задачи сохранены. До свидания!");
+                        break;
                 }
             }
         }
@@ -82,6 +88,7 @@ namespace TaskTracker.UI
             Console.WriteLine("3. Изменить статус задачи");
             Console.WriteLine("4. Удалить задачу");
             Console.WriteLine("5. Сохранить и выйти");
+            Console.WriteLine("6. Сохранить и выйти");
             Console.Write("Выберите действие: ");
 
             string input = Console.ReadLine();
@@ -229,6 +236,18 @@ namespace TaskTracker.UI
             {
                 Console.WriteLine("Задача не найдена.");
             }
+
+            if (useArrowMenu)
+            {
+                Console.WriteLine("\nНажмите любую клавишу для продолжения...");
+                Console.ReadKey();
+            }
+        }
+        private void ShowStatistics()
+        {
+            Console.WriteLine();
+            Console.WriteLine("--- Статистика ---");
+            Console.WriteLine(taskService.GetStatistics());
 
             if (useArrowMenu)
             {
