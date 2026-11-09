@@ -87,7 +87,7 @@ namespace TaskTracker.UI
             Console.WriteLine("2. Добавить задачу");
             Console.WriteLine("3. Изменить статус задачи");
             Console.WriteLine("4. Удалить задачу");
-            Console.WriteLine("5. Сохранить и выйти");
+            Console.WriteLine("5. Статистика");
             Console.WriteLine("6. Сохранить и выйти");
             Console.Write("Выберите действие: ");
 
